@@ -30,6 +30,7 @@
             );
         }
 
+        // chat message component
         function ChatMessage(props) {
           // console.log("ChatMessage props:", props);
           
@@ -93,13 +94,34 @@
         // ALT for app (creating App component)
         // and use it instead of the variable 'app' above
         function App(){
+
+          const chatMessages = [{
+            message: 'Hello Chatbot',
+            sender: 'user'
+          }, {
+            message: 'Hello! How can I help you?',
+            sender: 'robot'
+          }, {
+            message: 'Can you get me today\'s date?',
+            sender: 'user'
+          }, {
+            message: 'Today is September 27th.',
+            sender: 'robot'
+          }]
+
+          const chatMessageComponents = chatMessages.map((chatMessage) => {
+            return(
+              <ChatMessage 
+                message={chatMessage.message}
+                sender={chatMessage.sender}
+              />
+            )
+          });
+
           return(
-              <>
-                <ChatInput></ChatInput>
-                <ChatMessage message="Hello Chatbot!" sender="user" />
-                <ChatMessage message="How can I help you?" sender="robot" />
-                <ChatMessage message="Can you get me todays date?" sender="user" />
-                <ChatMessage message="Today is September 21st." sender="robot" />  
+            <>
+              <ChatInput></ChatInput>
+              {chatMessageComponents}
             </>
           )
         }
