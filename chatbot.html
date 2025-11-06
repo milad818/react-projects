@@ -93,7 +93,31 @@
 
 
         function ChatMessages() {
-          const chatMessages = [{
+          
+          // const array = React.useState( 
+          //   [{
+          //   message: 'Hello Chatbot',
+          //   sender: 'user',
+          //   id: 'id1'
+          // }, {
+          //   message: 'Hello! How can I help you?',
+          //   sender: 'robot',
+          //   id: 'id2'
+          // }, {
+          //   message: 'Can you get me today\'s date?',
+          //   sender: 'user',
+          //   id: 'id3'
+          // }, {
+          //   message: 'Today is September 27th.',
+          //   sender: 'robot',
+          //   id: 'id4'
+          // }]
+          // );
+          // 2. The array above re-organized through directly via array destructuring
+          // instead of firstly forming 'array' and then destructuring it
+          const [chatMessages, setChatMessages] = React.useState( 
+
+            [{
             message: 'Hello Chatbot',
             sender: 'user',
             id: 'id1'
@@ -110,10 +134,36 @@
             sender: 'robot',
             id: 'id4'
           }]
+          );
+          // const chatMessages = array[0]; // current data
+          // const setChatMessages = array[1]; // function to update data/DOM (Updater Function)
+          // 1. ALTERNATIVE to the two lines above: array destructuring where order matters
+          // const [chatMessages, setChatMessages] = array
 
           
+          function sendMessage() {
+            console.log('Message sent!')
+
+            setChatMessages([
+              ...chatMessages,
+              {
+                message: 'test',
+                sender: 'user',
+                id: crypto.randomUUID()
+              }
+            ]);
+
+            console.log(chatMessages);
+          }
+
           return(
+            // Be careful that on click, the content of the array is updated bu not the DOM
+            // so the updated content might be displayed on explorer
+            // You’re changing the variable in memory, but the page doesn’t know it needs to update.
+            // Unless your code listens for changes and updates the DOM (for example, by re-running a render function or setting state in React)
             <>
+              <button onClick={sendMessage}> Send Message </button>
+
               {
                   chatMessages.map((chatMessage) => {
                     return(
