@@ -91,37 +91,62 @@
             </>
         );
 
-        // ALT for app (creating App component)
-        // and use it instead of the variable 'app' above
-        function App(){
 
+        function ChatMessages() {
           const chatMessages = [{
             message: 'Hello Chatbot',
-            sender: 'user'
+            sender: 'user',
+            id: 'id1'
           }, {
             message: 'Hello! How can I help you?',
-            sender: 'robot'
+            sender: 'robot',
+            id: 'id2'
           }, {
             message: 'Can you get me today\'s date?',
-            sender: 'user'
+            sender: 'user',
+            id: 'id3'
           }, {
             message: 'Today is September 27th.',
-            sender: 'robot'
+            sender: 'robot',
+            id: 'id4'
           }]
 
-          const chatMessageComponents = chatMessages.map((chatMessage) => {
-            return(
-              <ChatMessage 
-                message={chatMessage.message}
-                sender={chatMessage.sender}
-              />
-            )
-          });
+          
+          return(
+            <>
+              {
+                  chatMessages.map((chatMessage) => {
+                    return(
+                      <ChatMessage 
+                        message={chatMessage.message}
+                        sender={chatMessage.sender}
+                        key={chatMessage.id}
+                      />
+                    )
+                  })
+                }
+            </>
+          )
+
+        }
+
+        // ALT for app (creating App component)
+        // and use it instead of the variable 'app' above
+        function App() {
+
+          // const chatMessageComponents = chatMessages.map((chatMessage) => {
+          //   return(
+          //     <ChatMessage 
+          //       message={chatMessage.message}
+          //       sender={chatMessage.sender}
+          //     />
+          //   )
+          // });
 
           return(
             <>
               <ChatInput></ChatInput>
-              {chatMessageComponents}
+              <ChatMessages />
             </>
           )
         }
