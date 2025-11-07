@@ -9,9 +9,10 @@
     <script src="react-basics.js"></script>
     <script src="https://unpkg.com/supersimpledev/external-library.js"></script>
 
-
     <script src="https://unpkg.com/supersimpledev/react.js"></script>
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
@@ -27,14 +28,32 @@
           }
 
           function sendMessage() {
-            setChatMessages([
+            
+            const newChatMessages = [
               ...chatMessages,
               {
                 message: inputText,
                 sender: 'user',
                 id: crypto.randomUUID()
               }
+            ]
+            
+            setChatMessages();
+
+            const response = Chatbot.getResponse(inputText);
+
+            // WATCH OUT! State is updated after all of the code is finished!
+            // So this below overwrites the input message and displays the response at the end
+            setChatMessages([
+              ...newChatMessages,
+              {
+                message: response,
+                sender: 'robot',
+                id: crypto.randomUUID()
+              }
             ]);
+
+            setInputText('');
           }
 
           return (
@@ -43,7 +62,8 @@
                     type="text"
                     placeholder="Type your message..."
                     size="50"
-                    onChange = {saveInputText}                  
+                    onChange = {saveInputText}
+                    value={inputText}                  
                   />
                   <button onClick={sendMessage}> Send </button>
               </>
