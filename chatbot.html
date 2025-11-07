@@ -38,7 +38,8 @@
               }
             ]
             
-            setChatMessages();
+            // Apparently, commenting the function below doesn't impact the performance
+            setChatMessages(newChatMessages);
 
             const response = Chatbot.getResponse(inputText);
 
