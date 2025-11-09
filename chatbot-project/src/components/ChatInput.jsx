@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Chatbot } from "supersimpledev";
-
+import './ChatInput.css'
 
 // To export the component, simply add `export` before function
 // Or export it at the bottom of the script

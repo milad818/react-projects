@@ -2,7 +2,7 @@
 // images can be imported as below or passing the paths to images drectly as <img/> prop
 import RobotProfileImage from '../assets/robot.jpg'
 import UserProfileImage from '../assets/user.jpg'
-
+import './ChatMessage.css'
 
 // chat message component
 export function ChatMessage(props) {

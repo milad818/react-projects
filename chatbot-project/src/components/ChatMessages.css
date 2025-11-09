@@ -1,0 +1,9 @@
+
+.chat-messages-container {
+  flex-grow: 1;
+  margin-top: 20px;
+  
+  /* overflow: scroll; */ /* In this case, the input is pushed to the bottom again */
+  scrollbar-width: none;
+  overflow-y: auto;
+}
