@@ -2,3 +2,9 @@
 # my files
 react-basics.html
 react-basics.js
+
+# node files and directories
+node_modules
+dist
+dist-ssr
+*.local
