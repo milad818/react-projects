@@ -6,6 +6,8 @@
 
       body {
         font-family: Arial;
+        margin-top: 0px;
+        margin-bottom: 0px;
       }
 
       .send-button {
@@ -30,12 +32,17 @@
 
       .chat-input-container {
         display: flex;
+        margin-bottom: 60px;
       }
 
       .app-container {
         max-width: 700px;
         margin-left: auto;
         margin-right: auto;
+        height: 100vh;
+        
+        display: flex;
+        flex-direction: column;
       }
 
       .chat-message-user {
@@ -62,6 +69,13 @@
 
       .chat-message-image {
         width: 45px;
+      }
+
+      .chat-messages-container {
+        flex-grow: 1;
+        margin-top: 20px;
+        overflow: scroll;
+        scrollbar-width: none;
       }
     </style>
 
@@ -211,8 +225,7 @@
             // so the updated content might be displayed on explorer
             // You’re changing the variable in memory, but the page doesn’t know it needs to update.
             // Unless your code listens for changes and updates the DOM (for example, by re-running a render function or setting state in React)
-            <>
-
+            <div className='chat-messages-container'>
               {
                   chatMessages.map((chatMessage) => {
                     return(
@@ -224,7 +237,7 @@
                     )
                   })
                 }
-            </>
+            </div>
           )
 
         }
@@ -291,12 +304,13 @@
 
           return(
             <div
-            className="app-container">
-              <ChatInput
-                chatMessages={chatMessages}
-                setChatMessages={setChatMessages} />
+            className="app-container">              
               <ChatMessages 
                 chatMessages={chatMessages}
+              />
+              <ChatInput
+                chatMessages={chatMessages}
+                setChatMessages={setChatMessages} 
               />
             </div>
           )
