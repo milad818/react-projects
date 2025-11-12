@@ -1,10 +1,15 @@
 
+import { useEffect, useState } from 'react';
 import axios from 'axios'
 import './HomePage.css';
 import { Header } from '../components/Header';
-import { products } from '../../starting-code/data/products';
+
+// import dummy data
+// import { products } from '../../starting-code/data/products';
 
 export function HomePage() {
+
+  const [products, setProducts] = useState([]);
 
   /*
   fetch('http://localhost:3000/api/products')
@@ -27,10 +32,12 @@ export function HomePage() {
   */
 
   // ALTERNATIVE approach: Axios (to work directly with response)
-  axios.get('http://localhost:3000/api/products')
+  useEffect(() => {
+    axios.get('http://localhost:3000/api/products')
     .then((response) => {
-      console.log(response.data);
+      setProducts(response.data);
     });
+  }, []);  // loads only once if it is empty inside brackets
 
 
   return (
