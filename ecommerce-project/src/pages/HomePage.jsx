@@ -4,6 +4,27 @@ import { Header } from '../components/Header';
 import { products } from '../../starting-code/data/products';
 
 export function HomePage() {
+
+  fetch('http://localhost:3000/api/products')
+    
+    /*
+    .then((response) => {
+      // check reponse content
+      // console.log(response)
+      // response.json(): a promise that gives us the data attached to the response
+      // which is also asynchronous as well as fetch()
+      response.json().then((data) => {
+        console.log(data)
+      });
+    */
+
+    // the second promise then() can be moved outside the first for better organization
+    .then((response) => {
+      return response.json()
+    }).then((data) => {
+      console.log(data)
+    });
+
   return (
     <>
       <title>Home Page</title>
