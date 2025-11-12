@@ -1,13 +1,13 @@
 
+import axios from 'axios'
 import './HomePage.css';
 import { Header } from '../components/Header';
 import { products } from '../../starting-code/data/products';
 
 export function HomePage() {
 
+  /*
   fetch('http://localhost:3000/api/products')
-    
-    /*
     .then((response) => {
       // check reponse content
       // console.log(response)
@@ -16,7 +16,7 @@ export function HomePage() {
       response.json().then((data) => {
         console.log(data)
       });
-    */
+    
 
     // the second promise then() can be moved outside the first for better organization
     .then((response) => {
@@ -24,6 +24,14 @@ export function HomePage() {
     }).then((data) => {
       console.log(data)
     });
+  */
+
+  // ALTERNATIVE approach: Axios (to work directly with response)
+  axios.get('http://localhost:3000/api/products')
+    .then((response) => {
+      console.log(response.data);
+    });
+
 
   return (
     <>
