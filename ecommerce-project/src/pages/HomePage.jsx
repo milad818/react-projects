@@ -34,13 +34,13 @@ export function HomePage() {
 
   // ALTERNATIVE approach: Axios (to work directly with response)
   useEffect(() => {
-    axios.get('http://localhost:3000/api/products')
+    axios.get('/api/products')
     .then((response) => {
       setProducts(response.data);
     });
   }, []);  // loads only once if it is empty inside brackets
 
-  axios.get(('http://localhost:3000/api/cart-items'))
+  axios.get(('/api/cart-items'))
     .then((response) => {
       setCart(response.data);
     })
