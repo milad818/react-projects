@@ -7,10 +7,9 @@ import { Header } from '../components/Header';
 // import dummy data
 // import { products } from '../../starting-code/data/products';
 
-export function HomePage() {
+export function HomePage( {cart} ) {
 
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
 
   /*
   fetch('http://localhost:3000/api/products')
@@ -35,14 +34,10 @@ export function HomePage() {
   // ALTERNATIVE approach: Axios (to work directly with response)
   useEffect(() => {
     axios.get('/api/products')
-    .then((response) => {
-      setProducts(response.data);
+      .then((response) => {
+        setProducts(response.data);
     });
 
-    axios.get(('/api/cart-items'))
-    .then((response) => {
-      setCart(response.data);
-    })
   }, []);  // loads only once if it is empty inside brackets
 
 
