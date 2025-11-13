@@ -38,12 +38,14 @@ export function HomePage() {
     .then((response) => {
       setProducts(response.data);
     });
-  }, []);  // loads only once if it is empty inside brackets
 
-  axios.get(('/api/cart-items'))
+    axios.get(('/api/cart-items'))
     .then((response) => {
       setCart(response.data);
     })
+  }, []);  // loads only once if it is empty inside brackets
+
+
 
   return (
     <>
