@@ -34,7 +34,7 @@ export function CheckoutPage({ cart }) {
         <div className="header-content">
           <div className="checkout-header-left-section">
             <a href="/">
-              <img className="logo" src="images/logo.png" />
+              <img className="logo" src="images/logo-milad818-green.png" />
               <img className="mobile-logo" src="images/mobile-logo.png" />
             </a>
           </div>
@@ -60,7 +60,7 @@ export function CheckoutPage({ cart }) {
                 .find((deliveryOption) => {
                   return deliveryOption.id === cartItem.deliveryOptionId;
                 })
-              
+
               return (
                 <div key={cartItem.productId} className="cart-item-container">
                   <div className="delivery-date">
@@ -107,7 +107,7 @@ export function CheckoutPage({ cart }) {
                                 {dayjs(deliveryOption.estimatedDeliveryTimeMs).format('dddd, MMMM D')}
                               </div>
                               <div className="delivery-option-price">
-                                {deliveryOption.priceCents==0 ? 'FREE Shipping' : `${formatPrice(deliveryOption.priceCents)} - Shipping`}
+                                {deliveryOption.priceCents == 0 ? 'FREE Shipping' : `${formatPrice(deliveryOption.priceCents)} - Shipping`}
                               </div>
                             </div>
                           </div>
@@ -128,47 +128,45 @@ export function CheckoutPage({ cart }) {
             {paymentSummary && (
               <>
                 <div className="payment-summary-row">
-              <div>Items ({paymentSummary.totalItems}):</div>
-              <div className="payment-summary-money">
-                {formatPrice(paymentSummary.productCostCents)}
-              </div>
-            </div>
+                  <div>Items ({paymentSummary.totalItems}):</div>
+                  <div className="payment-summary-money">
+                    {formatPrice(paymentSummary.productCostCents)}
+                  </div>
+                </div>
 
-            <div className="payment-summary-row">
-              <div>Shipping &amp; handling:</div>
-              <div className="payment-summary-money">
-                {formatPrice(paymentSummary.shippingCostCents)}
-              </div>
-            </div>
+                <div className="payment-summary-row">
+                  <div>Shipping &amp; handling:</div>
+                  <div className="payment-summary-money">
+                    {formatPrice(paymentSummary.shippingCostCents)}
+                  </div>
+                </div>
 
-            <div className="payment-summary-row subtotal-row">
-              <div>Total before tax:</div>
-              <div className="payment-summary-money">
-                {formatPrice(paymentSummary.totalCostBeforeTaxCents)}
-              </div>
-            </div>
+                <div className="payment-summary-row subtotal-row">
+                  <div>Total before tax:</div>
+                  <div className="payment-summary-money">
+                    {formatPrice(paymentSummary.totalCostBeforeTaxCents)}
+                  </div>
+                </div>
 
-            <div className="payment-summary-row">
-              <div>Estimated tax (10%):</div>
-              <div className="payment-summary-money">
-                {formatPrice(paymentSummary.taxCents)}
-              </div>
-            </div>
+                <div className="payment-summary-row">
+                  <div>Estimated tax (10%):</div>
+                  <div className="payment-summary-money">
+                    {formatPrice(paymentSummary.taxCents)}
+                  </div>
+                </div>
 
-            <div className="payment-summary-row total-row">
-              <div>Order total:</div>
-              <div className="payment-summary-money">
-                {formatPrice(paymentSummary.totalCostCents)}
-              </div>
-            </div>
+                <div className="payment-summary-row total-row">
+                  <div>Order total:</div>
+                  <div className="payment-summary-money">
+                    {formatPrice(paymentSummary.totalCostCents)}
+                  </div>
+                </div>
 
-            <button className="place-order-button button-primary">
-              Place your order
-            </button>
+                <button className="place-order-button button-primary">
+                  Place your order
+                </button>
               </>
             )}
-
-            
           </div>
         </div>
       </div>
