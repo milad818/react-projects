@@ -34,11 +34,12 @@ export function HomePage( {cart} ) {
 
   // ALTERNATIVE approach: Axios (to work directly with response)
   useEffect(() => {
-    axios.get('/api/products')
-      .then((response) => {
-        setProducts(response.data);
-    });
+    const getHomeData = async () => {
+      const response = await axios.get('/api/products');
+      setProducts(response.data);
+    };
 
+    getHomeData();
   }, []);  // loads only once if it is empty inside brackets
 
 

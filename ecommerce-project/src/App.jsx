@@ -12,10 +12,20 @@ function App() {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/cart-items?expand=product')
-      .then((response) => {
-        setCart(response.data);
-      });
+    // axios.get('/api/cart-items?expand=product')
+    //   .then((response) => {
+    //     setCart(response.data);
+    //   });
+
+    // ALTERNATIVE
+    // Note that useEffect should not return a promise, it returns nothing or a cleanup function
+    // That's why a new function is created inside useEffect
+    const fetchAppData = async () => {
+      const response = await axios.get('/api/cart-items?expand=product')
+      setCart(response.data);
+    };
+
+    fetchAppData()
   }, []);
 
   return (
