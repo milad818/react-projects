@@ -1,10 +1,10 @@
 
 import './OrdersPage.css'
-import { Header } from '../components/Header';
 import axios from 'axios';
 import { Fragment, useEffect, useState } from 'react';
 import dayjs from 'dayjs';
-import { formatPrice } from '../utils/money';
+import { Header } from '../../components/Header';
+import { formatPrice } from '../../utils/money';
 
 
 
