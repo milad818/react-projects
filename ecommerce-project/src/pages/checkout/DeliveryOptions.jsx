@@ -21,7 +21,11 @@ export function DeliveryOptions({ deliveryOptions, cartItem, loadCart }){
 
                       return (
                         <div key={deliveryOption.id} className="delivery-option" onClick={updateDeliveryOption} >
-                          <input type="radio" checked={deliveryOption.id === cartItem.deliveryOptionId}
+                          <input type="radio" 
+                            checked={deliveryOption.id === cartItem.deliveryOptionId}
+                            onChange={() => {}} // only to handle the error in the console
+                                                // NOTE that when checked, onChange is necessary
+                                                // onClick already present, non need to configure onChange
                             className="delivery-option-input"
                             name={`delivery-option-${cartItem.productId}`} />
                           <div>
