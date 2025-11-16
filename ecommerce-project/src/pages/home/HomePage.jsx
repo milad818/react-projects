@@ -8,7 +8,7 @@ import './HomePage.css';
 // import dummy data
 // import { products } from '../../starting-code/data/products';
 
-export function HomePage( {cart} ) {
+export function HomePage( {cart, loadCart} ) {
 
   const [products, setProducts] = useState([]);
 
@@ -47,11 +47,10 @@ export function HomePage( {cart} ) {
   return (
     <>
       <title>Home Page</title>
-
       <Header cart={cart} />
 
       <div className="home-page">
-        <ProductsGrid products={products} />
+        <ProductsGrid products={products} loadCart={loadCart} />
       </div>
     </>
   );
