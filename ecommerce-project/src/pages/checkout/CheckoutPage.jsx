@@ -39,7 +39,7 @@ export function CheckoutPage({ cart, loadCart }) {
         <div className="header-content">
           <div className="checkout-header-left-section">
             <a href="/">
-              <img className="logo" src="images/logo-milad818-green.png" />
+              <img className="logo" src="images/logo-milad818-dblue.png" />
               <img className="mobile-logo" src="images/mobile-logo.png" />
             </a>
           </div>
