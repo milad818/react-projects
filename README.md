@@ -188,6 +188,71 @@ After installation, import and use it in your components:
 import { something } from 'supersimpledev';
 ```
 
+### Setting Up Testing with Vitest
+
+Vitest is a fast unit testing framework for Vite projects. Here's how to set it up:
+
+#### Install Vitest and Testing Libraries
+
+```bash
+# Install Vitest as a dev dependency
+npm install --save-dev vitest@3.1.2
+
+# Install React Testing Library and jsdom for DOM testing
+npm install --save-dev @testing-library/react@16.3.0 @testing-library/jest-dom@6.6.3 @testing-library/user-event@14.6.1 jsdom@26.1.0
+```
+
+#### Create Configuration Files
+
+**1. Create `vitest.config.js` in your project root:**
+
+```javascript
+import { defineConfig } from 'vitest/config'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+  test: {
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: './setupTests.js',
+  }
+});
+```
+
+**2. Create `setupTests.js` in your project root:**
+
+```javascript
+import '@testing-library/jest-dom';
+```
+
+#### Run Tests
+
+```bash
+# Run tests in watch mode
+npm test
+
+# Run tests once
+npm test run
+
+# Run tests with UI
+npm run test:ui
+
+# Run tests using npx (without adding to package.json) (Recommended)
+npx vitest
+
+# Run tests once with npx
+npx vitest run
+
+# Run tests with coverage using npx
+npx vitest --coverage
+```
+
+**Configuration Explanation:**
+- `environment: 'jsdom'` - Simulates a browser environment for testing React components
+- `globals: true` - Enables global test functions (describe, it, expect) without imports
+- `setupFiles` - Runs setup file before each test to configure jest-dom matchers
+
 ## Project Structure
 
 ```
