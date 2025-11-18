@@ -5,6 +5,8 @@ import './index.css'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
+
+  // If there is <Link> in a comp, the comp should be wrapped in BrowserRouter
   <StrictMode>
     <BrowserRouter>
       <App />

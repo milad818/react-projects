@@ -10,7 +10,7 @@ describe('formatPrice', () => {
   expect(formatPrice(4800)).toBe('$48.00');
   });
   it('display dollar sign', () => {
-  expect(formatPrice(1200)).toBe('12.00')
+  expect(formatPrice(1200)).toBe('$12.00')
   });
 });
 
