@@ -2,7 +2,7 @@
 
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event';  // lets us simulate events e.g., a click
-import { expect, it, describe, vi } from 'vitest';  // renders a component in a fake web page
+import { expect, it, describe, vi, beforeEach } from 'vitest';  // renders a component in a fake web page
 import { Product } from './Product';
 import axios from 'axios';
 
@@ -14,8 +14,19 @@ vi.mock('axios');
 // Component testing requires further libraries to be installed
 // GO TO README.md
 describe('Product Component', () => {
-  it('displays the product details correctly', () => {
-    const product = {
+
+  // 'product' is share between test cases
+  // If testing modifies the variable, better to recreate the variable
+  // so that consistency will be maitained
+  let product; 
+  
+  // Mock for loadCart (creates a fake function)
+  let loadCart = vi.fn();
+
+
+  // Run some code before each test - via beforeEach() webhook
+  beforeEach(() => {
+    product = {
     id: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
     image: "images/products/intermediate-composite-basketball.jpg",
     name: "Intermediate Size Basketball",
@@ -27,8 +38,12 @@ describe('Product Component', () => {
     keywords: ["sports", "basketballs"]
   }
 
+  loadCart = vi.fn();
+  });
+
+
+  it('displays the product details correctly', () => {
     // Mock for loadCart (creates a fake function)
-    const loadCart = vi.fn();
 
     render(<Product product={product} loadCart={loadCart} />)
 
@@ -64,20 +79,6 @@ describe('Product Component', () => {
 
   // Test 'Add to Cart' button
   it('adds product to the cart as expected', async () => {
-    const product = {
-    id: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
-    image: "images/products/intermediate-composite-basketball.jpg",
-    name: "Intermediate Size Basketball",
-    rating: {
-      stars: 4,
-      count: 127
-    },
-    priceCents: 2095,
-    keywords: ["sports", "basketballs"]
-  }
-
-    // Mock for loadCart (creates a fake function)
-    const loadCart = vi.fn();
 
     render(<Product product={product} loadCart={loadCart} />)
 
