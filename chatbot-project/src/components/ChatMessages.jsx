@@ -19,8 +19,8 @@ export function ChatMessages({ chatMessages }) {
                         // dependency array [chatMessages] to control when useEffect runs
 
     return(
-    // Be careful that on click, the content of the array is updated bu not the DOM
-    // so the updated content might be displayed on explorer
+    // Be careful that on click, the content of the array is updated but not the DOM
+    // so the updated content might not be displayed on explorer
     // You’re changing the variable in memory, but the page doesn’t know it needs to update.
     // Unless your code listens for changes and updates the DOM (for example, by re-running a render function or setting state in React)
     <div className='chat-messages-container'
