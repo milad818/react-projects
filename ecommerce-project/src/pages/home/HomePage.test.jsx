@@ -1,10 +1,8 @@
 
 
 import { render, screen, within } from '@testing-library/react'
-import userEvent from '@testing-library/user-event';  // lets us simulate events e.g., a click
 import { expect, it, describe, vi, beforeEach } from 'vitest';  // renders a component in a fake web page
 import { MemoryRouter } from 'react-router';
-import { Product } from './Product';
 import axios from 'axios';
 import { HomePage } from './HomePage';
 
