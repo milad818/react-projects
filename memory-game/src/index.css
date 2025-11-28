@@ -175,6 +175,7 @@ body {
   border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
+/* applies the features to card-front div when both card and flipped */
 .card.flipped .card-front {
   opacity: 0;
   pointer-events: none;
