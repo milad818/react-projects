@@ -1,14 +1,29 @@
 # React Projects
 
-A collection of React projects including a chatbot application and more coming soon.
+A collection of React projects showcasing various features and implementations. Each project has its own README file for detailed setup and usage instructions.
 
 ## Projects
 
 ### Chatbot Project
-An interactive chatbot interface built with React and Vite, featuring a clean UI with message history and input handling.
+- **Description**: An interactive chatbot interface built with React and Vite, featuring a clean UI with message history and input handling.
+- **Tech Stack**: JavaScript, React, Vite
 
-### E-commerce Project *(Coming Soon)*
-An e-commerce application will be added in the near future.
+### E-commerce Project
+- **Description**: A full-stack e-commerce application with a React-based frontend and an Express.js backend. It includes product listing, cart management, and order review features.
+- **Tech Stack**: RESTful API, React, JavaScript, TypeScript, Vite, Axios, Node.js, Express.js, Sequelize,
+PostgreSQL, CORS, MVC pattern, Vitest.
+
+### E-commerce Backend
+- **Description**: The backend for the e-commerce project, providing RESTful APIs for managing products, orders, and cart functionality.
+- **Tech Stack**: Node.js, Express.js, Sequelize, Axios, Sequelize, PostgreSQL
+
+### Memory Game
+- **Description**: A simple memory game built with React, where players match pairs of cards.
+- **Tech Stack**: JavaScript, React, Vite
+
+### E-commerce Project (JavaScript Version)
+- **Description**: A JavaScript-based version of the e-commerce project, showcasing similar features without a backend.
+- **Tech Stack**: JavaScript, Vite
 
 ## Prerequisites
 
@@ -253,21 +268,6 @@ npx vitest --coverage
 - `globals: true` - Enables global test functions (describe, it, expect) without imports
 - `setupFiles` - Runs setup file before each test to configure jest-dom matchers
 
-## Project Structure
-
-```
-chatbot-project/
-├── src/
-│   ├── components/     # React components
-│   ├── assets/         # Images and static files
-│   ├── App.jsx         # Main application component
-│   └── main.jsx        # Application entry point
-├── public/             # Public static assets
-├── index.html          # HTML template
-├── package.json        # Dependencies and scripts
-├── vite.config.js      # Vite configuration
-└── eslint.config.js    # ESLint configuration
-```
 
 ## Additional Files
 
