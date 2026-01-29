@@ -1,3 +1,106 @@
+
+# Online Shop (E-commerce)
+
+This project is a full-stack e-commerce application consisting of a React-based frontend and an Express.js backend. The frontend is built using Vite, and the backend provides RESTful APIs for managing products, orders, and cart functionality.
+
+---
+
+## Project Setup
+
+### Frontend (E-commerce Project)
+1. Navigate to the `ecommerce-project` directory:
+   ```bash
+   cd ecommerce-project
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+4. Open your browser and navigate to `http://localhost:5173` to view the application.
+
+### Backend (E-commerce Backend)
+1. Navigate to the `ecommerce-backend` directory:
+   ```bash
+   cd ecommerce-backend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the backend server in development mode:
+   ```bash
+   npm run dev
+   ```
+4. The backend will run on `http://localhost:3000` by default.
+
+---
+
+## Project Structure
+
+### Frontend (E-commerce Project)
+```
+ecommerce-project/
+├── public/             # Static assets (e.g., images, GIFs)
+│   ├── e-commerce.gif  # Demonstration GIF
+│   └── images/         # Product and logo images
+├── src/                # Source code
+│   ├── components/     # Reusable React components
+│   ├── pages/          # Page-level components (Home, Checkout, Orders)
+│   ├── App.jsx         # Main application component
+│   └── main.jsx        # Application entry point
+├── package.json        # Project metadata and dependencies
+├── vite.config.js      # Vite configuration
+└── README.md           # Project documentation
+```
+
+### Backend (E-commerce Backend)
+```
+ecommerce-backend/
+├── routes/             # API route handlers
+│   ├── products.js     # Product-related endpoints
+│   ├── orders.js       # Order-related endpoints
+│   ├── cartItems.js    # Cart-related endpoints
+│   └── deliveryOptions.js # Delivery options endpoints
+├── defaultData/        # Default data for products, orders, etc.
+├── server.js           # Entry point for the backend server
+├── package.json        # Project metadata and dependencies
+├── README.md           # Backend documentation
+└── troubleshooting.md  # Troubleshooting guide
+```
+
+---
+
+## Demonstration
+
+Below is a demonstration of the application in action:
+
+![E-commerce Demo](public/e-commerce.gif)
+
+---
+
+## Features
+
+- **Frontend**:
+  - Product listing with images, ratings, and prices
+  - Add-to-cart functionality
+  - Checkout and order review pages
+  - Responsive design
+
+- **Backend**:
+  - RESTful APIs for products, orders, and cart management
+  - Default data for quick setup
+  - Development server with hot reload
+
+---
+
+## Troubleshooting
+
+If you encounter any issues, refer to the `troubleshooting.md` file in the backend directory or ensure all dependencies are installed correctly.
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
